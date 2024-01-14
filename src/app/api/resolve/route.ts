@@ -15,8 +15,15 @@ export async function POST(req: Request, res: Response) {
       return Response.json({ error: "Invalid input" }, { status: 400 });
     }
 
-    const { goal, theme, timeframeFrom, timeframeTo, describe, nextSteps } =
-      result.data;
+    const {
+      goal,
+      theme,
+      timeframeFrom,
+      timeframeTo,
+      describe,
+      nextSteps,
+      checkbox,
+    } = result.data;
 
     const { userId } = auth();
     if (!userId)
@@ -30,6 +37,7 @@ export async function POST(req: Request, res: Response) {
         timeframeTo,
         describe,
         nextSteps,
+        checkbox,
         userId,
       },
     });

@@ -17,6 +17,7 @@ model Resolve {
   describe      String
 
   nextSteps String[]
+  checkbox  String[]
 
   userId    String
   createdAt DateTime @default(now())

@@ -11,6 +11,9 @@ export const createResolveSchema = z.object({
   nextSteps: z.array(z.string()).refine((data) => data.length >= 3, {
     message: "At least three steps are required",
   }),
+  checkbox: z.array(z.string()).refine((data) => data.length >= 3, {
+    message: "True Or False",
+  }),
 });
 
 export const updateResolveSchema = createResolveSchema.extend({

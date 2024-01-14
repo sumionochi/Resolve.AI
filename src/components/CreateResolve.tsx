@@ -48,6 +48,7 @@ const CreateResolve = ({open, setOpen, toEdit}: Props) => {
             timeframeTo: toEdit?.timeframeTo || "",
             describe: toEdit?.describe || "",
             nextSteps: toEdit?.nextSteps || [],
+            checkbox: toEdit?.checkbox || [],
         },
     });   
 
