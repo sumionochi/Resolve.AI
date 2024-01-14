@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import React from 'react';
 import prisma from "@/lib/db";
 import ResolveDisplay from "@/components/ResolveDisplay";
+import Calendar from "@/components/Calender";
+import IssueChart from "@/components/IssueChart";
 
 export const metadata: Metadata = {
   title: 'Resolve.AI - Display Page'
@@ -19,8 +21,8 @@ const Dashboard = async (props: Props) => {
   return (
     <div className="flex flex-col max-w-6xl mx-auto mt-10 gap-8 p-4">
       <div className="flex flex-col gap-4">
-        {/* <Calendar EveryResolve={EveryResolve}/>
-        <IssueChart EveryResolve={EveryResolve}/> */}
+        <Calendar EveryResolve={EveryResolve}/>
+        <IssueChart EveryResolve={EveryResolve}/>
       </div>
       {/* <AIChatButton/> */}
       <div className="grid gap-4 place-content-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3">

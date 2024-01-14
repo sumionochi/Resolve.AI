@@ -172,7 +172,7 @@ const CreateResolve = ({open, setOpen, toEdit}: Props) => {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogContent>
-                <DialogHeader><DialogTitle>{toEdit ? "Edit Assessment" : "Add Assessment"}</DialogTitle></DialogHeader>
+                <DialogHeader><DialogTitle>{toEdit ? "Edit Resolve" : "Create Resolve"}</DialogTitle></DialogHeader>
                 <Form {...form}>
                     <form className='space-y-3' onSubmit={form.handleSubmit(onSubmit)}>
                         <div className={cn('space-y-3',{hidden: formStep == 1})}>
@@ -214,12 +214,7 @@ const CreateResolve = ({open, setOpen, toEdit}: Props) => {
                                 <FormItem>
                                     <FormLabel>Elaborate Your Goal</FormLabel>
                                     <FormControl>
-                                    <Textarea className='h-48' placeholder="Strong MERN development experience for 5+ years and experience in leading a team.
-                                    • Expertise in JavaScript
-                                    • HTML 5, CSS 3 & JSON
-                                    • Superior ability to write good tests for 100% coverage in Jest or Mocha or Chai or Karma or Jasmine or Enzyme or Cypress
-                                    • Excellent understanding of database, schema designing and hands-on complex SQL queries
-                                    • Excellent understanding of REST services using NodeJS or Java Spring Boot" {...field}/>
+                                    <Textarea className='h-48' placeholder="Want to Create a study schedule and stick to it consistently." {...field}/>
                                     </FormControl>
                                     <FormMessage/>
                                 </FormItem>
@@ -257,7 +252,8 @@ const CreateResolve = ({open, setOpen, toEdit}: Props) => {
                                                                 }}
                                                             />
                                                         </FormControl>
-                                                           <div className='flex flex-col gap-2 mb-4 sm:flex-row'>
+                                                        
+                                                           <div className='flex flex-col gap-2 mb-4 sm:flex-row mt-4'>
                                                            <Button className="p-5 shadow-md shadow-black border-none bg-gradient-to-br from-violet-500 to-orange-300 text-white rounded-xl" type="button" onClick={() => generateStep(index)}>
                                                                 <Star className="w-5 h-5 mr-2" />
                                                                 Curate with AI
@@ -270,6 +266,36 @@ const CreateResolve = ({open, setOpen, toEdit}: Props) => {
                                                     </div>
                                                     <FormMessage />
                                                 </FormItem>
+                                                <FormField
+                                                control={form.control}
+                                                name={`checkbox.${index}`} 
+                                                render={({ field }) => (
+                                                    <FormItem>
+                                                    <FormLabel>Current Status</FormLabel>
+                                                    <Select
+                                                        onValueChange={(value) => {
+                                                        form.setValue(`checkbox.${index}`, value);
+                                                        }}
+                                                        defaultValue={field.value}
+                                                    >
+                                                        <FormControl>
+                                                        <SelectTrigger>
+                                                            <SelectValue placeholder="Select Current Status" />
+                                                        </SelectTrigger>
+                                                        </FormControl>
+                                                        <SelectContent>
+                                                        {['Not Yet Started', 'On Going', 'Completed'].map((title) => (
+                                                            <SelectItem value={title.toString()} key={title}>
+                                                            {title}
+                                                            </SelectItem>
+                                                        ))}
+                                                        </SelectContent>
+                                                    </Select>
+                                                    <FormMessage />
+                                                    </FormItem>
+                                                )}
+                                                />
+
                                                 </StyledDraggable>
                                             )}
                                             </Draggable>
