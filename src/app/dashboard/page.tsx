@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { Metadata } from "next";
 import React from 'react';
 import prisma from "@/lib/db";
+import ResolveDisplay from "@/components/ResolveDisplay";
 
 export const metadata: Metadata = {
   title: 'Resolve.AI - Display Page'
@@ -23,9 +24,9 @@ const Dashboard = async (props: Props) => {
       </div>
       {/* <AIChatButton/> */}
       <div className="grid gap-4 place-content-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      {/* {EveryResolve.map((resolve) => (
-        <ResolveDisplay assessment={assessment} key={assessment.id} />
-      ))} */}
+      {EveryResolve.map((resolve) => (
+        <ResolveDisplay resolve={resolve} key={resolve.id} />
+      ))}
       </div>
       
       {EveryResolve.length === 0 && (
