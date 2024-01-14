@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createAssessSchema = z.object({
+export const createResolveSchema = z.object({
   goal: z.string().min(1, { message: "Goal is required" }),
   theme: z.string().min(1, { message: "Theme is required" }),
   timeframeFrom: z.string().min(1, { message: "Initial Date is required" }),
@@ -13,12 +13,12 @@ export const createAssessSchema = z.object({
   }),
 });
 
-export const updateAssessSchema = createAssessSchema.extend({
+export const updateResolveSchema = createResolveSchema.extend({
   id: z.string().min(1),
 });
 
-export const deleteAssessSchema = z.object({
+export const deleteResolveSchema = z.object({
   id: z.string().min(1),
 });
 
-export type CreateAssessSchema = z.infer<typeof createAssessSchema>;
+export type CreateResolveSchema = z.infer<typeof createResolveSchema>;
