@@ -6,7 +6,7 @@ import Logo from './Logo'
 import { UserButton, auth } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 import { User } from '@clerk/nextjs/server'
-// import CreateTask from './CreateTask'
+import CreateResolve from './CreateResolve'
 
 type Props = {
   userId : string | null
@@ -32,6 +32,8 @@ const NavHeader = ({userId}: Props) => {
           </div>
         </nav>
       </header>
+      <CreateResolve open={addDialog} setOpen={setAddDialog}/>
+
     </>
   )
 }
